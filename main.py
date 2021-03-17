@@ -1,4 +1,4 @@
-from classes.game import Person
+from classes.game import Person,bbcolors
 
 magic = [{"name": "Fire", "Cost":10, "dmg":25},
          {"name": "Thunder", "Cost":10, "dmg":60},
