@@ -1,2 +1,2 @@
 # RPG-Battle-Script
-A command line RPG game script where green is good and red is the archenemy
+this repository consists of A command line RPG game script where green is the Hero and red is the Archenemy.
