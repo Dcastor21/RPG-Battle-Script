@@ -1,8 +1,8 @@
 from classes.game import Person, bcolors
 
-magic = [{"name": "Fire", "Cost": 10, "dmg": 125},
-         {"name": "Thunder", "Cost": 10, "dmg": 90},
-         {"name": "Blizzard", "Cost": 15, "dmg": 100}]
+magic = [{"name": "Fire", "cost": 10, "dmg": 125},
+         {"name": "Thunder", "cost": 10, "dmg": 90},
+         {"name": "Blizzard", "cost": 15, "dmg": 100}]
 
 player = Person(460, 65, 60, 36, magic)
 enemy = Person(1200, 65, 45, 25, magic)
@@ -24,7 +24,7 @@ while running:
     
 
     elif index == 1:
-        player.choice_magic_spell()
+        player.choose_magic_spell()
         magic_choice = int(input("Choose magic:")) - 1
         magic_dmg = player.generate_spell_damage(magic_choice)
         spell = player.get_spell_name(magic_choice)
@@ -36,7 +36,7 @@ while running:
             print(bcolors.FAIL + "\nNot enough MP\n" + bcolors.ENDC)
             continue
 
-        player.reduce_hp(cost)
+        player.reduce_mp(cost)
         enemy.take_damage(magic_dmg)
         print(bcolors.OKBLUE + "\n" + spell + "deals", str(magic_dmg), "points of damage" + bcolors.ENDC)
 
@@ -45,8 +45,14 @@ while running:
     enemy_dmg = enemy.generate_damage()
     player.take_damage(enemy_dmg)
     print("Enemy attacks for",enemy_dmg, "Player HP",player.get_hp())
+
+    print("----------------------------------")
+    print("Enemy HP:", bcolors.FAIL + str(enemy.get_hp()) + "/"+ str(enemy.get_max_hp()) + bcolors.ENDC + "\n")
+    print("your HP:", bcolors.OKGREEN + str(player.get_hp()) +"/" + str(player.get_max_hp()) + bcolors.ENDC)
+    print("your MP:", bcolors.OKBLUE + str(player.get_mp()) + "/" + str(player.get_max_mp()) + bcolors. ENDC + "\n")
+
     
-    if enemy.gethp()== 0:
+    if enemy.get_hp()== 0:
         print(bcolors.OKGREEN + "You win!" + bcolors.ENDC)
         running = False
         
