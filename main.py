@@ -21,9 +21,10 @@ while running:
         dmg = player.generate_damage()
         enemy.take_damage(dmg)
         print("your attacked  for", dmg, "points of damage.")
+    
 
     elif index == 1:
-        player.choice_magic()
+        player.choice_magic_spell()
         magic_choice = int(input("Choose magic:")) - 1
         magic_dmg = player.generate_spell_damage(magic_choice)
         spell = player.get_spell_name(magic_choice)
