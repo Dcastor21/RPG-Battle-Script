@@ -43,6 +43,7 @@ while running:
 
     enemy_dmg = enemy.generate_damage()
     player.take_damage(enemy_dmg)
+<<<<<<< HEAD
     print("Enemy attacks for", enemy_dmg, "Player HP", player.get_hp())
 
     if enemy.get_hp() == 0:
@@ -51,3 +52,14 @@ while running:
     elif player.get_hp() == 0:
         print(bcolors.FAIL + "your enemy has defeated you!" + bcolors.ENDC)
         running = False
+=======
+    print("Enemy attacks for",enemy_dmg, "Player HP",player.get_hp())
+    
+    if enemy.gethp()== 0:
+        print(bcolors.OKGREEN + "You win!" + bcolors.ENDC)
+        running = False
+        
+    elif player.get_hp() == 0:
+        print(bcolors.FAIL + "You lose!" + bcolors.ENDC)
+        
+>>>>>>> aaff70fa87e769abb002a1053ffc7116f99b09e2
