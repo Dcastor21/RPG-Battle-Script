@@ -1,15 +1,7 @@
 from classes.game import Person, bcolors
-from classes.inventory import Item
-from classes.magic import Spell
 
-fire = Spell("Fire", 10, 100, "black")
-thunder = Spell("Thunder", 10, 100, "black")
-blizzard = Spell("Blizzard", 10, 100, "black")
-meteor = Spell("Meteor", 20, 200, "black")
-quake = Spell("Quake", 14, 140, "black")
-
-cure = Spell('Cure', 12, 120, "white")
-cura = Spell('Cura', 12, 120, "white")
+cure = Spell("Cure", 15, 150, "White")
+cura = Spell("Cura", 18, 200, "white")
 
 potion = Item("Potion", "potion", "Heals 50 HP", 50)
 hipotion = Item("Hi-Potion", "potion", "Heals 100 HP", 100)
@@ -21,6 +13,10 @@ grenade = Item("Grenade", "attack", "Deals 500 damage", 500)
 
 player = Person(460, 40, 60, 36, [fire, thunder, blizzard, meteor, quake, cure, cura], [])
 enemy = Person(1200, 65, 45, 25, [], [])
+
+
+player = Person(460, 40, 60, 36, [fire, blizzard, poison, earthquake])
+enemy = Person(1200, 65, 45, 25, [])
 
 running = True
 i = 0
@@ -66,17 +62,18 @@ while running:
 
     enemy_dmg = enemy.generate_damage()
     player.take_damage(enemy_dmg)
-    print("Enemy attacks for", enemy_dmg, )
+    print("Enemy attacks for",enemy_dmg, "Player HP",player.get_hp())
 
     print("----------------------------------")
-    print("Enemy HP:", bcolors.FAIL + str(enemy.get_hp()) + "/" + str(enemy.get_max_hp()) + bcolors.ENDC + "\n")
-    print("your HP:", bcolors.OKGREEN + str(player.get_hp()) + "/" + str(player.get_max_hp()) + bcolors.ENDC)
-    print("your MP:", bcolors.OKBLUE + str(player.get_mp()) + "/" + str(player.get_max_mp()) + bcolors.ENDC + "\n")
+    print("Enemy HP:", bcolors.FAIL + str(enemy.get_hp()) + "/"+ str(enemy.get_max_hp()) + bcolors.ENDC + "\n")
+    print("your HP:", bcolors.OKGREEN + str(player.get_hp()) +"/" + str(player.get_max_hp()) + bcolors.ENDC)
+    print("your MP:", bcolors.OKBLUE + str(player.get_mp()) + "/" + str(player.get_max_mp()) + bcolors. ENDC + "\n")
 
-    if enemy.get_hp() == 0:
+    
+    if enemy.get_hp()== 0:
         print(bcolors.OKGREEN + "You win!" + bcolors.ENDC)
         running = False
-
+        
     elif player.get_hp() == 0:
         print(bcolors.FAIL + "You lose!" + bcolors.ENDC)
-        running = False
+        
