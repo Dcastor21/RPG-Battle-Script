@@ -13,7 +13,8 @@ class bcolors:
 
 
 class Person:
-    def __init__(self, hp, mp, atk, df, magic, item):
+    def __init__(self, name, hp, mp, atk, df, magic, item):
+        self.name = name
         self.maxhp = hp
         self.hp = hp
         self.maxmp = mp
@@ -23,7 +24,7 @@ class Person:
         self.df = df
         self.magic = magic
         self.item = item
-        self.actions = ["Attack", "Magic"]
+        self.actions = ["Attack", "Magic", "Items"]
 
     def generate_damage(self):
         return random.randrange(self.atkl, self.atkh)
@@ -40,7 +41,7 @@ class Person:
         return self.hp
 
     def heal(self, dmg):
-        self.hp -= dmg
+        self.hp += dmg
         if self.hp > self.maxhp:
             self.hp = self.maxhp
 
@@ -67,14 +68,30 @@ class Person:
 
     def choose_action(self):
         i = 1
-        print("Actions")
+        print('\n' + bcolors.BOLD + self.name + bcolors.ENDC)
+        print(bcolors.OKBLUE + bcolors.BOLD + "Actions" + bcolors.ENDC)
         for item in self.actions:
-            print(str(i) + ":", item)
+            print("   " + str(i) + ".", item)
             i += 1
 
     def choose_magic_spell(self):
         i = 1
-        print(bcolors.OKBLUE + bcolors.BOLD + "Magic" + bcolors.ENDC)
+        print("\n" + bcolors.OKBLUE + bcolors.BOLD + "Magic" + bcolors.ENDC)
         for spell in self.magic:
-            print(str(i) + ":", spell.name, "(cost:", str(spell.cost) + ")")
+            print("   " + str(i) + ":", spell.name,
+                  "(cost:", str(spell.cost) + ")")
             i += 1
+
+    def choose_item(self):
+        i = 1
+        print("\n" + bcolors.OKGREEN + bcolors.BOLD + "ITEMS:" + bcolors.ENDC)
+        for item in self.item:
+            print("   " + str(i) + ".", item["item"].name, ":",
+                  item["item"].description, "(x" + str(item["quantity"]) + ")")
+            i += 1
+
+    def get_stats(self):
+        print("                 _______________________            __________ ")
+        print(bcolors.BOLD + self.name + " " +
+              str(self.hp) + "/" + str(self.maxhp) + "|" + bcolors.OKGREEN + " ███████████████████████" + bcolors.ENDC + "|    " +
+              str(self.mp) + "/" + str(self.maxmp) + "|" + bcolors.OKBLUE + "██████████" + bcolors.ENDC + "| ")
