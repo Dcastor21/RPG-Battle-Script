@@ -6,15 +6,15 @@ import time
 
 print("\n\n")
 # Create Black Magic
-fire = Spell("Fire", 10, 100, "black")
-thunder = Spell("Thunder", 10, 100, "black")
-blizzard = Spell("Blizzard", 10, 100, "black")
-meteor = Spell("Meteor", 20, 200, "black")
-quake = Spell("Quake", 14, 140, "black")
+fire = Spell("Fire", 10, 1000, "black")
+thunder = Spell("Thunder", 10, 1100, "black")
+blizzard = Spell("Blizzard", 10, 1400, "black")
+meteor = Spell("Meteor", 20, 1200, "black")
+quake = Spell("Quake", 14, 1240, "black")
 
 # Create White Magic
-cure = Spell('Cure', 12, 120, "white")
-cura = Spell('Cura', 12, 120, "white")
+cure = Spell('Cure', 12, 620, "white")
+cura = Spell('Cura', 12, 1220, "white")
 
 # Create some Items
 potion = Item("Potion", "potion", "Heals 50 HP", 50)
@@ -33,10 +33,10 @@ player_items = [{"item": potion, "quantity": 15}, {"item": hipotion, "quantity":
 
 
 # instantiate People
-player1 = Person("Valos: ", 460, 40, 60, 36, player_spells, player_items)
-player2 = Person("Nick: ", 3460, 40, 60, 36, player_spells, player_items)
-player3 = Person("Jason: ", 7460, 40, 60, 36, player_spells, player_items)
-enemy = Person("Magnus", 1200, 65, 45, 25, [], [])
+player1 = Person("Valos: ", 3260, 140, 300, 34, player_spells, player_items)
+player2 = Person("Nick: ", 4160, 188, 311, 34, player_spells, player_items)
+player3 = Person("Jason: ", 3089, 174, 288, 34, player_spells, player_items)
+enemy = Person("Magnus", 11200, 701, 525, 25, [], [])
 
 players = [player1, player2, player3]
 
