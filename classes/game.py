@@ -109,9 +109,11 @@ class Person:
             mp_ticks -= 1
 
         while len(mp_bar) < 10:
-            hp_bar += " "
+            mp_bar += " "
 
-        print("                 _______________________            __________ ")
+
+
+        print("                   _______________________              __________ ")
         print(bcolors.BOLD + self.name + " " +
               str(self.hp) + "/" + str(self.maxhp) + "|" + bcolors.OKGREEN + " ███████████████████████" + bcolors.ENDC + "|    " +
               str(self.mp) + "/" + str(self.maxmp) + "|" + bcolors.OKBLUE + "██████████" + bcolors.ENDC + "| ")
