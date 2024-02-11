@@ -90,6 +90,16 @@ class Person:
                   item["item"].description, "(x" + str(item["quantity"]) + ")")
             i += 1
 
+    def get_enemy_stats(self):
+        hp_bar = ""
+        bar_ticks = (self.hp/self.maxhp) * 100 / 2
+        while bar_ticks >0:
+            hp_bar += "█"
+            bar_ticks -= 1
+
+        while len(hp_bar) < 25:
+            hp_bar += " "
+
     def get_stats(self):
         hp_bar=""
         bar_ticks = (self.hp/self.maxhp) * 100 / 4
@@ -110,6 +120,22 @@ class Person:
 
         while len(mp_bar) < 10:
             mp_bar += " "
+
+        hp_string = str(self.hp) + "/" + str(self.maxhp)
+        current_hp = ""
+
+        if len(hp_string) < 9:
+            decreased = 9 - len(hp_string)
+
+            while decreased > 9:
+                current_hp += " "
+                decreased -= 1
+
+                current_hp += hp_string
+            else:
+                current_hp = hp_string
+
+                
 
 
 
